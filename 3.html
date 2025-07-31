@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index.html">Domů</a></li>
+                <li><a href="3.html">Díla</a></li>
+                <li><a href="dan.html">O Autorovi</a></li>
+            </ul>
+        </nav>
+        
+    </header>
+    <article>
+        <header>
+            <h1>Díla</h1>
+        </header>
+        
+        <p class="highlight">
+                Zde je seznam dochovaných děl. 
+        </p>
+        <table class="stylish_table">
+                <tr>
+                    <th>Dílo</th>
+                    <th>Rok</th>
+                    <th>Odkaz</th>
+                </tr>
+                <tr>
+                    <td>Metro osudu</td>
+                    <td>2018</td>
+                    <td><li><a href="4.html">link</a></li></td>
+                </tr>
+                <tr>
+                    <td>Trpení v samotě</td>
+                    <td>2019</td>
+                    <td><li><a href="2.html">link</a></li></td>
+                </tr>
+                <tr>
+                    <td>Krátká povídka</td>
+                    <td>2021</td>
+                    <td><li><a href="5.html">link</a></li></td>
+                </tr>
+                <tr>
+                    <td>Marnivost</td>
+                    <td>2020</td>
+                    <td><li><a href="6.html">link</a></li></td>
+                </tr>
+                <tr>
+                    <td>Metro osudu(Píseň)</td>
+                    <td>2025</td>
+                    <td><!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Custom Audio Player</title>
+  <style>
+    .audio-player {
+      width: 150px;
+      height: 45px;
+      padding: 3px;
+      border-radius: 10px;
+      background: #f0f0f0;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      font-family: sans-serif;
+    }
+
+    .controls {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1px;
+      margin-bottom: 8px;
+    }
+
+    .progress-bar {
+      width: 100%;
+      height: 6px;
+      background: #ccc;
+      border-radius: 3px;
+      cursor: pointer;
+      position: relative;
+    }
+
+    .progress {
+      height: 100%;
+      background: #4caf50;
+      width: 0%;
+      border-radius: 3px;
+    }
+
+    .time {
+      font-size: 12px;
+      text-align: right;
+    }
+
+    input[type="range"] {
+      width: 100%;
+    }
+
+    button {
+      background: none;
+      border: none;
+      cursor: pointer;
+      font-size: 14px;
+    }
+
+    button:hover {
+      color: #4caf50;
+    }
+  </style>
+</head>
+<body>
+
+<div class="audio-player">
+  <audio id="audio" src="Metro Osudu.mp3"></audio>
+
+  <div class="controls">
+    <button id="play-btn">▶️</button>
+    <input type="range" id="volume" min="0" max="1" step="0.01">
+  </div>
+
+  <div class="progress-bar" id="progress-bar">
+    <div class="progress" id="progress"></div>
+  </div>
+
+  <div class="time" id="time">0:00 / 0:00</div>
+</div>
+
+<script>
+  const audio = document.getElementById('audio');
+  const playBtn = document.getElementById('play-btn');
+  const progressBar = document.getElementById('progress-bar');
+  const progress = document.getElementById('progress');
+  const time = document.getElementById('time');
+  const volume = document.getElementById('volume');
+
+  playBtn.addEventListener('click', () => {
+    if (audio.paused) {
+      audio.play();
+      playBtn.textContent = '⏸️';
+    } else {
+      audio.pause();
+      playBtn.textContent = '▶️';
+    }
+  });
+
+  audio.addEventListener('timeupdate', () => {
+    const percent = (audio.currentTime / audio.duration) * 100;
+    progress.style.width = percent + '%';
+
+    const formatTime = t => {
+      const mins = Math.floor(t / 60);
+      const secs = Math.floor(t % 60).toString().padStart(2, '0');
+      return `${mins}:${secs}`;
+    };
+
+    time.textContent = `${formatTime(audio.currentTime)} / ${formatTime(audio.duration || 0)}`;
+  });
+
+  progressBar.addEventListener('click', e => {
+    const rect = progressBar.getBoundingClientRect();
+    const clickX = e.clientX - rect.left;
+    const ratio = clickX / rect.width;
+    audio.currentTime = ratio * audio.duration;
+  });
+
+  volume.addEventListener('input', () => {
+    audio.volume = volume.value;
+  });
+
+  // Set default volume
+  volume.value = 0.8;
+  audio.volume = 0.8;
+</script>
+
+</body>
+</html>
+</td>
+                </tr>
+        </table>
+                
+        <footer>
+            <span id="leftcenter">
+               <br>Více se dočtete v <a href="dan.html">Biografii</a>.
+            </span>
+        </footer>
+    </article>
+</body>
+</html>
